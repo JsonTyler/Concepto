@@ -1,0 +1,255 @@
+<!dOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Express.JS Demo</title>
+  <script type="text/javascript" src="/node_modules/vis/dist/vis.js"></script>
+  <link href="/node_modules/vis/dist/vis.css" rel="stylesheet" type="text/css" />
+
+  <style type="text/css">
+    #wrapper {
+      background: white;
+      overflow: hidden
+    }
+
+    #myFormContainer {
+      float: left;
+      background: white;
+    }
+
+    #graph {
+      float: right;
+      background: greem;
+      width: 700px;
+      height: 760px;
+      border: 1px solid black;
+    }
+
+    #dabutton {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+    }
+
+
+
+    textarea {
+      width: 100%;
+      height: 50px;
+      padding: 12px 20px;
+      box-sizing: border-box;
+      border: 2px solid #ccc;
+      border-radius: 4px;
+      background-color: #f8f8f8;
+      resize: none;
+    }
+  </style>
+  <script>
+
+  var container = document.getElementById("graph");
+  var network = new vis.Network(container, data, data.options);
+
+  var data = {
+      //DO NOT ALTER ANYTHING ABOVE HERE
+      nodes: [
+        {id: 1, label:"hi"}
+      ] 
+      ,
+      edges: [
+          { id: "one", from: "header", to: "location"},
+          { id: "two", from: "header", to:"caseNumber"},
+          { id: "three", from: "header", to:"forensicExaminer"},
+          { id: "four", from: "header", to:"request"},
+          { id: "five", from: "request", to:"requestingOfficer"},
+          { id: "six", from: "request", to:"background"},
+          { id: "seven", from: "background", to:"backgroundInfo"},
+          { id: "eight", from: "background", to:"digitalSummary"},
+          { id: "nine", from: "digitalSummary", to:"forensicImaging"},
+          { id: "ten", from: "digitalSummary", to:"forensicExamination"},
+          { id: "eleven", from: "digitalSummary", to:"theConclusion"},
+          { id: "twelve", from: "theConclusion", to:"conclusion"},
+          { id: "thirteen", from: "theConclusion", to:"contact"},
+          { id: "fourteen", from: "contact", to:"office"},
+          { id: "fifteen", from: "contact", to:"unit"},
+          { id: "sixteen", from: "contact", to:"forensicExaminerTwo"},
+          { id: "seventeen", from: "contact", to:"officePhone"},
+          { id: "eighteen", from: "contact", to:"cellPhone"},
+          { id: "nineteen", from: "contact", to:"email"},
+          { id: "twenty", from: "contact", to:"address"},
+          { id: "twentyone", from: "address", to:"streetAddress"},
+          { id: "twentytwo", from: "address", to:"cityAddress"},
+          { id: "twentythree", from: "address", to:"stateAddress"},
+          { id: "twentyfour", from: "address", to:"zipAddress"}
+
+      ],
+      options:{
+          layout: {
+              randomSeed: undefined,
+              improvedLayout:true,
+              hierarchical: {
+                  enabled:true,
+                  levelSeparation: 150,
+                  nodeSpacing: 100,
+                  treeSpacing: 200,
+                  blockShifting: true,
+                  edgeMinimization: true,
+                  parentCentralization: true,
+                  direction: 'UD',        // UD, DU, LR, RL
+                  sortMethod: 'directed'   // hubsize, directed
+              }
+          }
+      }
+  };
+    <!--
+    //ocument.getElementById('1').style.height="200px";
+
+    function make_json(form) {
+
+      var storageObj = [{
+          "id": 1,
+          "label": form.location.value
+        },
+        {
+          "id": 2,
+          "label": form.caseNumber.value
+        },
+        {
+          "id": 3,
+          "label": form.forensicExaminer.value
+        },
+        {
+          "id": 4,
+          "label": form.requestingOfficer.value
+        },
+        {
+          "id": 5,
+          "label": form.backgroundInfo.value
+        },
+        {
+          "id": 6,
+          "label": form.forensicImaging.value
+        },
+        {
+          "id": 7,
+          "label": form.forensicExamination.value
+        },
+        {
+          "id": 8,
+          "label": form.conclusion.value
+        },
+        {
+          "id": 9,
+          "label": form.office.value
+        },
+        {
+          "id": 10,
+          "label": form.unit.value
+        },
+        {
+          "id": 11,
+          "label": form.forensicExaminerTwo.value
+        },
+        {
+          "id": 12,
+          "label": form.streetAddress.value
+        },
+        {
+          "id": 13,
+          "label": form.cityAddress.value
+        },
+        {
+          "id": 14,
+          "label": form.stateAddress.value
+        },
+        {
+          "id": 15,
+          "label": form.zipAddress.value
+        },
+        {
+          "id": 16,
+          "label": form.officePhone.value
+        },
+        {
+          "id": 17,
+          "label": form.cellPhone.value
+        },
+        {
+          "id": 18,
+          "label": form.email.value
+        }
+      ];
+      var data = JSON.stringify(storageObj);
+      document.getElementById("downloadbtn").setAttribute("href", 'data:text/json;charset=utf-8,' + data);
+    }
+
+  </script>
+</head>
+
+<body>
+  <div id="graph">
+
+  </div>
+  <div id="myFormContainer">
+
+    <!--THE FORM -->
+    <div id="myFormContainer">
+      <form id='dabutton'
+        ref='uploadForm'
+        method='POST'
+        action='http://localhost:8080/api/node'
+        encType="multipart/form-data">
+          <input type="file" name="sampleFile" />
+          <input type='submit' value='Upload!' />
+        </form>
+      <form id="myForm" method="POST" action="/files" onsubmit="event.preventDefault(); return make_json(this)" ;>
+
+        <!-- ***HEADER*** -->
+        <div name="header" class="header" id="header">
+          Location: <input type="text" name="location" id="location" /><br/> Case Number: <input type="text" name="caseNumber" id="caseNumber" /><br/> Forensic Examiner: <input type="text" name="forensicExaminer" id="forensicExaminer" /><br/>
+        </div>
+
+
+        <!-- ***Request*** -->
+        <div name="request" class="request" id="request">
+          Requesting Officer Information: <textarea name="requestingOfficer" id="requestingOfficer"></textarea><br />
+        </div>
+
+
+        <!-- ***Background Information*** -->
+        <div name="background" class="background" id="background">
+          Background Information: <textarea name="backgroundInfo" id="backgroundInfo"></textarea><br />
+        </div>
+
+        <!-- ***Digital Evidence Summary Report*** -->
+        <div name="digitalEvidenceSummart" class="digitalEvidenceSummary" id="digitalEvidenceSummary">
+          <p>Digital Evidence Summary Report -</p>
+          <!-- ***Forensic Imaging*** -->
+          Forensic Imaging: <textarea name="forensicImaging" id="forensicImaging"></textarea><br />
+          <!-- ***Forensic Examination*** -->
+          Forensic Examination: <textarea name="forensicExamination" id="forensicExamination"></textarea><br />
+        </div>
+
+        <!-- ***Conclusion*** -->
+        <div name="theEnd" id="theEnd">
+          Conclusion: <textarea name="conclusion" id="conclusion"></textarea><br />
+        </div>
+
+        <!-- ***Contact Information -->
+        <div name="contactInfo" id="contactInfo">
+          Office: <input type="text" name="office" /><br /> Unit: <input type="text" name="unit" /><br /> Forensic Examiner: <input type="text" name="forensicExaminerTwo" /><br /> Address - Street: <input type="text" name="streetAddress" /><br /> City:
+          <input type="text" name="cityAddress" /><br /> State: <input type="text" name="stateAddress" /><br /> Zip: <input type="text" name="zipAddress" /><br /> Office Phone: <input type="text" name="officePhone" /><br /> Cell Phone: <input type="text"
+            name="cellPhone" /><br /> Email: <input type="text" name="email" /><br />
+        </div>
+
+        <input type="submit" id="submitbtn" value="Submit">
+      </form>
+      <a id="downloadbtn" href='data:text/json;charset=utf-8, {"Empty": "Empty"}' download="nodes.json">Download</a>
+      </form>
+
+  </div>
+  </div>
+</body>
+<script>
+</script>
+</html>
