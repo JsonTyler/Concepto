@@ -102,6 +102,5 @@
         "label": form.email.value
       }
     ];
-    var data = JSON.stringify(storageObj);
-    document.getElementById("downloadbtn").setAttribute("href", 'data:text/json;charset=utf-8,' + data);
+    console.log(storageObj);
   }
