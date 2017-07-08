@@ -6,8 +6,47 @@
 
   // create an array with edges
   var edges = new vis.DataSet([
-    {from: 1, to: 2},
-    {from: 1, to: 3}
+    {id: "a", from: "headerPreset", to: "locationPreset"},
+    {id: "b", from: "locationPreset", to: "location"},
+    {id: "c", from: "headerPreset", to: "caseNumberPreset"},
+    {id: "d", from: "caseNumberPreset", to: "caseNumber"},
+    {id: "e", from: "headerPreset", to: "forensicExaminerPreset"},
+    {id: "f", from: "forensicExaminerPreset", to: "forensicExaminer"},
+    {id: "g", from: "headerPreset", to: "infoPreset"},
+    {id: "h", from: "infoPreset", to: "requestingOfficerPreset"},
+    {id: "i", from: "requestingOfficerPreset", to: "requestingOfficer"},
+    {id: "j", from: "infoPreset", to: "backgroundInfoPreset"},
+    {id: "k", from: "backgroundInfoPreset", to: "backgroundInfo"},
+    {id: "l", from: "infoPreset", to: "digitalEvidencePreset"},
+    {id: "m", from: "digitalEvidencePreset", to: "forensicImagingPreset"},
+    {id: "n", from: "forensicImagingPreset", to: "forensicImaging"},
+    {id: "o", from: "digitalEvidencePreset", to: "forensicExaminationPreset"},
+    {id: "p", from: "forensicExaminationPreset", to: "forensicExamination"},
+    {id: "q", from: "digitalEvidencePreset", to: "conclusionPreset"},
+    {id: "r", from: "conclusionPreset", to: "conclusion"},
+    {id: "s", from: "conclusionPreset", to: "contactPreset"},
+    {id: "t", from: "contactPreset", to: "officePreset"},
+    {id: "u", from: "officePreset", to: "office"},
+    {id: "v", from: "contactPreset", to: "unitPreset"},
+    {id: "w", from: "unitPreset", to: "unit"},
+    {id: "x", from: "contactPreset", to: "forensicExaminerTwoPreset"},
+    {id: "y", from: "forensicExaminerTwoPreset", to: "forensicExaminerTwo"},
+    {id: "z", from: "contactPreset", to: "streetAddressPreset"},
+    {id: "aa", from: "streetAddressPreset", to: "streetAddress"},
+    {id: "ab", from: "contactPreset", to: "citAddressPreset"},
+    {id: "ac", from: "cityAddressPreset", to: "cityAddress"},
+    {id: "ad", from: "contactPreset", to: "stateAddressPreset"},
+    {id: "ae", from: "stateAddressPreset", to: "stateAddress"},
+    {id: "af", from: "contactPreset", to: "zipAddressPreset"},
+    {id: "ag", from: "zipAddressPreset", to: "zipAddress"},
+    {id: "ah", from: "contactPreset", to: "officePhonePreset"},
+    {id: "ai", from: "officePhonePreset", to: "officePhone"},
+    {id: "aj", from: "contactPreset", to: "cellPhonePreset"},
+    {id: "ak", from: "cellPhonePreset", to: "cellPhone"},
+    {id: "al", from: "contactPreset", to: "emailPreset"},
+    {id: "am", from: "emailPreset", to: "email"}
+
+
   ]);
 
   // create a network
@@ -19,82 +58,175 @@
   var options = {};
   var network = new vis.Network(container, data, options);
 
+  // create presetNodes
+  var presetData = [
+    {
+      "id": "headerPreset",
+      "label": "Header: "
+    },
+    {
+      "id": "locationPreset",
+      "label": "Location: "
+    },
+    {
+      "id": "caseNumberPreset",
+      "label": "Case Number: "
+    },
+    {
+      "id": "forensicExaminerPreset",
+      "label": "Forensic Examiner: "
+    },
+    {
+      "id": "infoPreset",
+      "label": "Info: "
+    },
+    {
+      "id": "requestingOfficerPreset",
+      "label": "Requesting Officer: "
+    },
+    {
+      "id": "backgroundInfoPreset",
+      "label": "Background Info: "
+    },
+    {
+      "id": "digitalEvidencePreset",
+      "label": "Digital Evidence Summary: "
+    },
+    {
+      "id": "forensicImagingPreset",
+      "label": "Forensic Imaging: "
+    },
+    {
+      "id": "forensicExaminationPreset",
+      "label": "Forensic Examination: "
+    },
+    {
+      "id": "conclusionPreset",
+      "label": "Conclusion: "
+    },
+    {
+      "id": "contactPreset",
+      "label": "Contact: "
+    },
+    {
+      "id": "officePreset",
+      "label": "Office: "
+    },
+    {
+      "id": "unitPreset",
+      "label": "Unit: "
+    },
+    {
+      "id": "forensicExaminerTwoPreset",
+      "label": "Forensic Examiner: "
+    },
+    {
+      "id": "streetAddressPreset",
+      "label": "Street: "
+    },
+    {
+      "id": "cityAddressPreset",
+      "label": "City: "
+    },
+    {
+      "id": "stateAddressPreset",
+      "label": "State: "
+    },
+    {
+      "id": "zipAddressPreset",
+      "label": "Zip: "
+    },
+    {
+      "id": "officePhonePreset",
+      "label": "Office Phone: "
+    },
+    {
+      "id": "cellPhonePreset",
+      "label": "Cell Phone: "
+    },
+    {
+      "id": "emailPreset",
+      "label": "Email: "
+    }
+  ];
 
   function make_json(form) {
 
     var formData = [{
-        "id": 1,
+        "id": "location",
         "label": form.location.value
       },
       {
-        "id": 2,
+        "id": "caseNumber",
         "label": form.caseNumber.value
       },
       {
-        "id": 3,
+        "id": "forensicExaminer",
         "label": form.forensicExaminer.value
       },
       {
-        "id": 4,
+        "id": "requestingOfficer",
         "label": form.requestingOfficer.value
       },
       {
-        "id": 5,
+        "id": "backgroundInfo",
         "label": form.backgroundInfo.value
       },
       {
-        "id": 6,
+        "id": "forensicImaging",
         "label": form.forensicImaging.value
       },
       {
-        "id": 7,
+        "id": "forensicExamination",
         "label": form.forensicExamination.value
       },
       {
-        "id": 8,
+        "id": "conclusion",
         "label": form.conclusion.value
       },
       {
-        "id": 9,
+        "id": "office",
         "label": form.office.value
       },
       {
-        "id": 10,
+        "id": "unit",
         "label": form.unit.value
       },
       {
-        "id": 11,
+        "id": "forensicExaminerTwo",
         "label": form.forensicExaminerTwo.value
       },
       {
-        "id": 12,
+        "id": "streetAddress",
         "label": form.streetAddress.value
       },
       {
-        "id": 13,
+        "id": "cityAddress",
         "label": form.cityAddress.value
       },
       {
-        "id": 14,
+        "id": "stateAddress",
         "label": form.stateAddress.value
       },
       {
-        "id": 15,
+        "id": "zipAddress",
         "label": form.zipAddress.value
       },
       {
-        "id": 16,
+        "id": "officePhone",
         "label": form.officePhone.value
       },
       {
-        "id": 17,
+        "id": "cellPhone",
         "label": form.cellPhone.value
       },
       {
-        "id": 18,
+        "id": "email",
         "label": form.email.value
       }
     ];
-    nodes.clear();
+
       nodes.add(formData);
+
   }
+nodes.add(presetData);

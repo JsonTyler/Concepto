@@ -17,16 +17,14 @@
 
     <!--THE FORM -->
     <div id="myFormContainer">
-      <form id='dabutton'
-        encType="multipart/form-data">
-          <input type="file" name="sampleFile" />
-          <input type='submit' value='Upload!' />
-        </form>
+      
       <form id="myForm" method="POST" action="/files" onsubmit="event.preventDefault(); return make_json(this)" ;>
 
         <!-- ***HEADER*** -->
         <div name="header" class="header" id="header">
-          Location: <input type="text" name="location" id="location" /><br/> Case Number: <input type="text" name="caseNumber" id="caseNumber" /><br/> Forensic Examiner: <input type="text" name="forensicExaminer" id="forensicExaminer" /><br/>
+          Location: <input type="text" name="location" id="location" /><br/>
+          Case Number: <input type="text" name="caseNumber" id="caseNumber" /><br/>
+          Forensic Examiner: <input type="text" name="forensicExaminer" id="forensicExaminer" /><br/>
         </div>
 
 
