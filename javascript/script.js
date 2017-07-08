@@ -1,13 +1,13 @@
 
   // create an array with nodes
   var nodes = new vis.DataSet([
-    
+
   ]);
 
   // create an array with edges
   var edges = new vis.DataSet([
-    {from: "location", to: "caseNumber"},
-    {from: "location", to: "forensicExaminer"}
+    {from: 1, to: 2},
+    {from: 1, to: 3}
   ]);
 
   // create a network
