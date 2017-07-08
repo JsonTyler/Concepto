@@ -11,18 +11,10 @@
 #graph {
   float: right;
   background: greem;
-  width: 700px;
+  width: 900px;
   height: 760px;
   border: 1px solid black;
 }
-
-#dabutton {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-}
-
-
 
 textarea {
   width: 100%;

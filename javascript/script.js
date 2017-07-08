@@ -55,7 +55,35 @@
     nodes: nodes,
     edges: edges
   };
-  var options = {};
+  var options = {
+    layout: {
+        hierarchical: {
+            levelSeparation: 120,
+            direction: "LR",
+            sortMethod: "directed"
+        }
+    },
+    edges: {
+        smooth: {
+            type: "cubicBezier",
+            forceDirection: 'vertical',
+            roundness: 0.25
+        },
+    },
+    physics: {
+        hierarchicalRepulsion: {
+            springLength: 100,
+            nodeDistance: 70
+        },
+        timestep: 0.40,
+        stabilization: {
+            enabled: true,
+            iterations: 200,
+            updateInterval: 30,
+            fit: false
+        }
+    }
+};
   var network = new vis.Network(container, data, options);
 
   // create presetNodes
