@@ -33,7 +33,7 @@
     {id: "y", from: "forensicExaminerTwoPreset", to: "forensicExaminerTwo"},
     {id: "z", from: "contactPreset", to: "streetAddressPreset"},
     {id: "aa", from: "streetAddressPreset", to: "streetAddress"},
-    {id: "ab", from: "contactPreset", to: "citAddressPreset"},
+    {id: "ab", from: "contactPreset", to: "cityAddressPreset"},
     {id: "ac", from: "cityAddressPreset", to: "cityAddress"},
     {id: "ad", from: "contactPreset", to: "stateAddressPreset"},
     {id: "ae", from: "stateAddressPreset", to: "stateAddress"},
@@ -56,6 +56,8 @@
     edges: edges
   };
   var options = {
+    autoResize: true,
+    //zoomView: true,
     layout: {
         hierarchical: {
             levelSeparation: 120,
@@ -63,27 +65,10 @@
             sortMethod: "directed"
         }
     },
-    edges: {
-        smooth: {
-            type: "cubicBezier",
-            forceDirection: 'vertical',
-            roundness: 0.25
-        },
-    },
-    physics: {
-        hierarchicalRepulsion: {
-            springLength: 100,
-            nodeDistance: 70
-        },
-        timestep: 0.40,
-        stabilization: {
-            enabled: true,
-            iterations: 200,
-            updateInterval: 30,
-            fit: false
-        }
-    }
-};
+
+    };
+
+
   var network = new vis.Network(container, data, options);
 
   // create presetNodes
@@ -253,7 +238,6 @@
         "label": form.email.value
       }
     ];
-
       nodes.add(formData);
 
   }
