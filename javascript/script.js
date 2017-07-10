@@ -1,7 +1,7 @@
-
+  
   // create an array with nodes
   var nodes = new vis.DataSet([
-
+    {id: "test", label: "Please fill out the form to the left to populate this map..."}
   ]);
 
   // create an array with edges
@@ -57,16 +57,42 @@
   };
   var options = {
     autoResize: true,
+    manipulation: {
+      addNode: function(nodeData,callback) {
+        nodeData.label = prompt("Label your node: ", "");
+        callback(nodeData);
+      },
+      editEdge: function(nodeData, callback) {
+        nodeData.label = prompt("Label your edge: ", "");
+        callback(nodeData);
+      }
+    },
+    edges: {
+      color: 'red',
+      width: 2
+    },
+    nodes: {
+      color: {
+        background: 'white',
+        border: 'grey'
+      },
+      shape: 'text',
+      radius: 1
+    },
     //zoomView: true,
     layout: {
-        hierarchical: {
-            levelSeparation: 120,
-            direction: "LR",
-            sortMethod: "directed"
-        }
+      improvedLayout: true,
+      hierarchical: {
+          levelSeparation: 100,
+          treeSpacing: 100,
+          parentCentralization: true,
+          edgeMinimization: true,
+          direction: "LR",
+          sortMethod: "directed"
+      }
     },
+  };
 
-    };
 
 
   var network = new vis.Network(container, data, options);
@@ -238,7 +264,7 @@
         "label": form.email.value
       }
     ];
+      nodes.clear();
       nodes.add(formData);
-
+      nodes.add(presetData);
   }
-nodes.add(presetData);
