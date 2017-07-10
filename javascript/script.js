@@ -1,4 +1,4 @@
-  
+
   // create an array with nodes
   var nodes = new vis.DataSet([
     {id: "test", label: "Please fill out the form to the left to populate this map..."}
@@ -7,23 +7,23 @@
   // create an array with edges
   var edges = new vis.DataSet([
     {id: "a", from: "headerPreset", to: "locationPreset"},
-    {id: "b", from: "locationPreset", to: "location"},
+    {id: "b", from: "locationPreset", to: "location", label: "at"},
     {id: "c", from: "headerPreset", to: "caseNumberPreset"},
-    {id: "d", from: "caseNumberPreset", to: "caseNumber"},
+    {id: "d", from: "caseNumberPreset", to: "caseNumber", label: "is"},
     {id: "e", from: "headerPreset", to: "forensicExaminerPreset"},
-    {id: "f", from: "forensicExaminerPreset", to: "forensicExaminer"},
+    {id: "f", from: "forensicExaminerPreset", to: "forensicExaminer", label: "is"},
     {id: "g", from: "headerPreset", to: "infoPreset"},
     {id: "h", from: "infoPreset", to: "requestingOfficerPreset"},
-    {id: "i", from: "requestingOfficerPreset", to: "requestingOfficer"},
+    {id: "i", from: "requestingOfficerPreset", to: "requestingOfficer", label: "is"},
     {id: "j", from: "infoPreset", to: "backgroundInfoPreset"},
-    {id: "k", from: "backgroundInfoPreset", to: "backgroundInfo"},
+    {id: "k", from: "backgroundInfoPreset", to: "backgroundInfo", label: "contains"},
     {id: "l", from: "infoPreset", to: "digitalEvidencePreset"},
     {id: "m", from: "digitalEvidencePreset", to: "forensicImagingPreset"},
-    {id: "n", from: "forensicImagingPreset", to: "forensicImaging"},
+    {id: "n", from: "forensicImagingPreset", to: "forensicImaging", label: "results in"},
     {id: "o", from: "digitalEvidencePreset", to: "forensicExaminationPreset"},
-    {id: "p", from: "forensicExaminationPreset", to: "forensicExamination"},
+    {id: "p", from: "forensicExaminationPreset", to: "forensicExamination", label: "examines"},
     {id: "q", from: "digitalEvidencePreset", to: "conclusionPreset"},
-    {id: "r", from: "conclusionPreset", to: "conclusion"},
+    {id: "r", from: "conclusionPreset", to: "conclusion", label: "concludes that"},
     {id: "s", from: "conclusionPreset", to: "contactPreset"},
     {id: "t", from: "contactPreset", to: "officePreset"},
     {id: "u", from: "officePreset", to: "office"},
