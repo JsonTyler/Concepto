@@ -56,7 +56,20 @@
     edges: edges
   };
   var options = {
-    autoResize: true,
+    groups: {
+      groupOne: {
+        shape: 'big box',
+        color: {
+          background:'rgb(41, 76, 223)'
+        }
+      },
+      groupTwo: {
+        shape: 'text',
+        color: {
+          background:'black',
+        },
+      },
+    },
     manipulation: {
       addNode: function(nodeData,callback) {
         nodeData.label = prompt("Label your node: ", "");
@@ -76,8 +89,7 @@
         background: 'white',
         border: 'grey'
       },
-      shape: 'text',
-      radius: 1
+      shape: 'triangle'
     },
     //zoomView: true,
     layout: {
@@ -101,90 +113,112 @@
   var presetData = [
     {
       "id": "headerPreset",
+      "group": "groupOne",
       "label": "Header: "
     },
     {
       "id": "locationPreset",
+      "group": "groupTwo",
       "label": "Location: "
     },
     {
       "id": "caseNumberPreset",
+      "group": "groupTwo",
       "label": "Case Number: "
     },
     {
       "id": "forensicExaminerPreset",
+      "group": "groupTwo",
       "label": "Forensic Examiner: "
     },
     {
       "id": "infoPreset",
+      "group": "groupOne",
       "label": "Info: "
     },
     {
       "id": "requestingOfficerPreset",
+      "group": "groupTwo",
       "label": "Requesting Officer: "
     },
     {
       "id": "backgroundInfoPreset",
+      "group": "groupTwo",
       "label": "Background Info: "
     },
     {
       "id": "digitalEvidencePreset",
+      "group": "groupOne",
       "label": "Digital Evidence Summary: "
     },
     {
       "id": "forensicImagingPreset",
+      "group": "groupTwo",
       "label": "Forensic Imaging: "
     },
     {
       "id": "forensicExaminationPreset",
+      "group": "groupTwo",
       "label": "Forensic Examination: "
     },
     {
       "id": "conclusionPreset",
+      "group": "groupOne",
       "label": "Conclusion: "
     },
     {
       "id": "contactPreset",
+      "group": "groupOne",
       "label": "Contact: "
     },
     {
       "id": "officePreset",
+      "group": "groupTwo",
       "label": "Office: "
     },
     {
       "id": "unitPreset",
+      "group": "groupTwo",
       "label": "Unit: "
     },
     {
       "id": "forensicExaminerTwoPreset",
+      "group": "groupTwo",
       "label": "Forensic Examiner: "
     },
     {
       "id": "streetAddressPreset",
+      "group": "groupTwo",
       "label": "Street: "
     },
     {
       "id": "cityAddressPreset",
+      "group": "groupTwo",
       "label": "City: "
     },
     {
       "id": "stateAddressPreset",
+      "group": "groupTwo",
       "label": "State: "
     },
     {
       "id": "zipAddressPreset",
+      "group": "groupTwo",
       "label": "Zip: "
     },
     {
       "id": "officePhonePreset",
+      "group": "groupTwo",
       "label": "Office Phone: "
     },
     {
       "id": "cellPhonePreset",
+      "group": "groupTwo",
       "label": "Cell Phone: "
     },
     {
       "id": "emailPreset",
+      "group": "groupTwo",
       "label": "Email: "
     }
   ];
@@ -193,74 +227,92 @@
 
     var formData = [{
         "id": "location",
+        "group": "groupThree",
         "label": form.location.value
       },
       {
         "id": "caseNumber",
+        "group": "groupThree",
         "label": form.caseNumber.value
       },
       {
         "id": "forensicExaminer",
+        "group": "groupThree",
         "label": form.forensicExaminer.value
       },
       {
         "id": "requestingOfficer",
+        "group": "groupThree",
         "label": form.requestingOfficer.value
       },
       {
         "id": "backgroundInfo",
+        "group": "groupThree",
         "label": form.backgroundInfo.value
       },
       {
         "id": "forensicImaging",
+        "group": "groupThree",
         "label": form.forensicImaging.value
       },
       {
         "id": "forensicExamination",
+        "group": "groupThree",
         "label": form.forensicExamination.value
       },
       {
         "id": "conclusion",
+        "group": "groupThree",
         "label": form.conclusion.value
       },
       {
         "id": "office",
+        "group": "groupThree",
         "label": form.office.value
       },
       {
         "id": "unit",
+        "group": "groupThree",
         "label": form.unit.value
       },
       {
         "id": "forensicExaminerTwo",
+        "group": "groupThree",
         "label": form.forensicExaminerTwo.value
       },
       {
         "id": "streetAddress",
+        "group": "groupThree",
         "label": form.streetAddress.value
       },
       {
         "id": "cityAddress",
+        "group": "groupThree",
         "label": form.cityAddress.value
       },
       {
         "id": "stateAddress",
+        "group": "groupThree",
         "label": form.stateAddress.value
       },
       {
         "id": "zipAddress",
+        "group": "groupThree",
         "label": form.zipAddress.value
       },
       {
         "id": "officePhone",
+        "group": "groupThree",
         "label": form.officePhone.value
       },
       {
         "id": "cellPhone",
+        "group": "groupThree",
         "label": form.cellPhone.value
       },
       {
         "id": "email",
+        "group": "groupThree",
         "label": form.email.value
       }
     ];
