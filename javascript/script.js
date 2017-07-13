@@ -58,17 +58,23 @@
   var options = {
     groups: {
       groupOne: {
-        shape: 'big box',
+        shape: 'box',
         color: {
-          background:'rgb(41, 76, 223)'
+          background:'rgb(10, 30, 113)'
         }
       },
       groupTwo: {
-        shape: 'text',
+        shape: 'box',
         color: {
-          background:'black',
+          background:'rgb(23, 64, 161)',
         },
       },
+      groupThree: {
+        shape: 'ellipse',
+        color: {
+          background: 'rgb(11, 10, 11)'
+        }
+      }
     },
     manipulation: {
       addNode: function(nodeData,callback) {
@@ -81,10 +87,20 @@
       }
     },
     edges: {
+      arrows: {
+      to:     {enabled: true, scaleFactor:1, type:'arrow'},
+      middle: {enabled: false, scaleFactor:1, type:'arrow'},
+      from:   {enabled: false, scaleFactor:1, type:'arrow'}
+    },
       color: 'red',
-      width: 2
+      width: 2,
+      dashes: true
     },
     nodes: {
+      font: {
+        color: 'white',
+        size: 14
+      },
       color: {
         background: 'white',
         border: 'grey'
