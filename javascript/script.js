@@ -29,25 +29,15 @@
     {id: "u", from: "officePreset", to: "office"},
     {id: "v", from: "contactPreset", to: "unitPreset"},
     {id: "w", from: "unitPreset", to: "unit"},
-    {id: "x", from: "contactPreset", to: "forensicExaminerTwoPreset"},
-    {id: "y", from: "forensicExaminerTwoPreset", to: "forensicExaminerTwo"},
-    {id: "z", from: "contactPreset", to: "streetAddressPreset"},
-    {id: "aa", from: "streetAddressPreset", to: "streetAddress"},
-    {id: "ab", from: "contactPreset", to: "cityAddressPreset"},
-    {id: "ac", from: "cityAddressPreset", to: "cityAddress"},
-    {id: "ad", from: "contactPreset", to: "stateAddressPreset"},
-    {id: "ae", from: "stateAddressPreset", to: "stateAddress"},
-    {id: "af", from: "contactPreset", to: "zipAddressPreset"},
-    {id: "ag", from: "zipAddressPreset", to: "zipAddress"},
-    {id: "ah", from: "contactPreset", to: "officePhonePreset"},
-    {id: "ai", from: "officePhonePreset", to: "officePhone"},
-    {id: "aj", from: "contactPreset", to: "cellPhonePreset"},
-    {id: "ak", from: "cellPhonePreset", to: "cellPhone"},
-    {id: "al", from: "contactPreset", to: "emailPreset"},
-    {id: "am", from: "emailPreset", to: "email"}
-
-
-  ]);
+    {id: "x", from: "contactPreset", to: "officePhonePreset"},
+    {id: "y", from: "officePhonePreset", to: "officePhone"},
+    {id: "z", from: "contactPreset", to: "cellPhonePreset"},
+    {id: "aa", from: "cellPhonePreset", to: "cellPhone"},
+    {id: "ab", from: "contactPreset", to: "emailPreset"},
+    {id: "ac", from: "emailPreset", to: "email"},
+    {id: "ad", from: "contactPreset", to: "addressPreset"},
+    {id: "ae", from: "addressPreset", to: "address"}
+]);
 
   // create a network
   var container = document.getElementById('graph');
@@ -188,41 +178,6 @@
       "label": "Contact: "
     },
     {
-      "id": "officePreset",
-      "group": "groupTwo",
-      "label": "Office: "
-    },
-    {
-      "id": "unitPreset",
-      "group": "groupTwo",
-      "label": "Unit: "
-    },
-    {
-      "id": "forensicExaminerTwoPreset",
-      "group": "groupTwo",
-      "label": "Forensic Examiner: "
-    },
-    {
-      "id": "streetAddressPreset",
-      "group": "groupTwo",
-      "label": "Street: "
-    },
-    {
-      "id": "cityAddressPreset",
-      "group": "groupTwo",
-      "label": "City: "
-    },
-    {
-      "id": "stateAddressPreset",
-      "group": "groupTwo",
-      "label": "State: "
-    },
-    {
-      "id": "zipAddressPreset",
-      "group": "groupTwo",
-      "label": "Zip: "
-    },
-    {
       "id": "officePhonePreset",
       "group": "groupTwo",
       "label": "Office Phone: "
@@ -236,6 +191,11 @@
       "id": "emailPreset",
       "group": "groupTwo",
       "label": "Email: "
+    },
+    {
+      "id": "addressPreset",
+      "group": "groupOne",
+      "label": "Address: "
     }
   ];
 
@@ -282,41 +242,6 @@
         "label": form.conclusion.value
       },
       {
-        "id": "office",
-        "group": "groupThree",
-        "label": form.office.value
-      },
-      {
-        "id": "unit",
-        "group": "groupThree",
-        "label": form.unit.value
-      },
-      {
-        "id": "forensicExaminerTwo",
-        "group": "groupThree",
-        "label": form.forensicExaminerTwo.value
-      },
-      {
-        "id": "streetAddress",
-        "group": "groupThree",
-        "label": form.streetAddress.value
-      },
-      {
-        "id": "cityAddress",
-        "group": "groupThree",
-        "label": form.cityAddress.value
-      },
-      {
-        "id": "stateAddress",
-        "group": "groupThree",
-        "label": form.stateAddress.value
-      },
-      {
-        "id": "zipAddress",
-        "group": "groupThree",
-        "label": form.zipAddress.value
-      },
-      {
         "id": "officePhone",
         "group": "groupThree",
         "label": form.officePhone.value
@@ -330,9 +255,14 @@
         "id": "email",
         "group": "groupThree",
         "label": form.email.value
+      },
+      {
+        "id": "address",
+        "group": "groupThree",
+        "label": form.address.value
       }
     ];
       nodes.clear();
       nodes.add(formData);
       nodes.add(presetData);
-  }
+  };
