@@ -6,37 +6,37 @@
 
   // create an array with edges
   var edges = new vis.DataSet([
-    {id: "a", from: "headerPreset", to: "locationPreset"},
-    {id: "b", from: "locationPreset", to: "location", label: "at"},
-    {id: "c", from: "headerPreset", to: "caseNumberPreset"},
-    {id: "d", from: "caseNumberPreset", to: "caseNumber", label: "is"},
-    {id: "e", from: "headerPreset", to: "forensicExaminerPreset"},
-    {id: "f", from: "forensicExaminerPreset", to: "forensicExaminer", label: "is"},
-    {id: "g", from: "headerPreset", to: "infoPreset"},
-    {id: "h", from: "infoPreset", to: "requestingOfficerPreset"},
-    {id: "i", from: "requestingOfficerPreset", to: "requestingOfficer", label: "is"},
-    {id: "j", from: "infoPreset", to: "backgroundInfoPreset"},
-    {id: "k", from: "backgroundInfoPreset", to: "backgroundInfo", label: "contains"},
-    {id: "l", from: "infoPreset", to: "digitalEvidencePreset"},
-    {id: "m", from: "digitalEvidencePreset", to: "forensicImagingPreset"},
-    {id: "n", from: "forensicImagingPreset", to: "forensicImaging", label: "results in"},
-    {id: "o", from: "digitalEvidencePreset", to: "forensicExaminationPreset"},
-    {id: "p", from: "forensicExaminationPreset", to: "forensicExamination", label: "examines"},
-    {id: "q", from: "digitalEvidencePreset", to: "conclusionPreset"},
-    {id: "r", from: "conclusionPreset", to: "conclusion", label: "concludes that"},
-    {id: "s", from: "conclusionPreset", to: "contactPreset"},
-    {id: "t", from: "contactPreset", to: "officePreset"},
-    {id: "u", from: "officePreset", to: "office"},
-    {id: "v", from: "contactPreset", to: "unitPreset"},
-    {id: "w", from: "unitPreset", to: "unit"},
-    {id: "x", from: "contactPreset", to: "officePhonePreset"},
-    {id: "y", from: "officePhonePreset", to: "officePhone"},
-    {id: "z", from: "contactPreset", to: "cellPhonePreset"},
-    {id: "aa", from: "cellPhonePreset", to: "cellPhone"},
-    {id: "ab", from: "contactPreset", to: "emailPreset"},
-    {id: "ac", from: "emailPreset", to: "email"},
-    {id: "ad", from: "contactPreset", to: "addressPreset"},
-    {id: "ae", from: "addressPreset", to: "address"}
+    {id: "a", from: "headerPreset", to: "locationPreset", hidden: false},
+    {id: "b", from: "locationPreset", to: "location", label: "at", hidden: false},
+    {id: "c", from: "headerPreset", to: "caseNumberPreset", hidden: false},
+    {id: "d", from: "caseNumberPreset", to: "caseNumber", label: "is", hidden: false},
+    {id: "e", from: "headerPreset", to: "forensicExaminerPreset", hidden: false},
+    {id: "f", from: "forensicExaminerPreset", to: "forensicExaminer", label: "is", hidden: false},
+    {id: "g", from: "headerPreset", to: "infoPreset", hidden: false},
+    {id: "h", from: "infoPreset", to: "requestingOfficerPreset", hidden: false},
+    {id: "i", from: "requestingOfficerPreset", to: "requestingOfficer", label: "is", hidden: false},
+    {id: "j", from: "infoPreset", to: "backgroundInfoPreset", hidden: false},
+    {id: "k", from: "backgroundInfoPreset", to: "backgroundInfo", label: "contains", hidden: false},
+    {id: "l", from: "infoPreset", to: "digitalEvidencePreset", hidden: false},
+    {id: "m", from: "digitalEvidencePreset", to: "forensicImagingPreset", hidden: false},
+    {id: "n", from: "forensicImagingPreset", to: "forensicImaging", label: "results in", hidden: false},
+    {id: "o", from: "digitalEvidencePreset", to: "forensicExaminationPreset", hidden: false},
+    {id: "p", from: "forensicExaminationPreset", to: "forensicExamination", label: "examines", hidden: false},
+    {id: "q", from: "digitalEvidencePreset", to: "conclusionPreset", hidden: false},
+    {id: "r", from: "conclusionPreset", to: "conclusion", label: "concludes that", hidden: false},
+    {id: "s", from: "conclusionPreset", to: "contactPreset", hidden: false},
+    {id: "t", from: "contactPreset", to: "officePreset", hidden: false},
+    {id: "u", from: "officePreset", to: "office", hidden: false},
+    {id: "v", from: "contactPreset", to: "unitPreset", hidden: false},
+    {id: "w", from: "unitPreset", to: "unit", hidden: false},
+    {id: "x", from: "contactPreset", to: "officePhonePreset", hidden: false},
+    {id: "y", from: "officePhonePreset", to: "officePhone", hidden: false},
+    {id: "z", from: "contactPreset", to: "cellPhonePreset", hidden: false},
+    {id: "aa", from: "cellPhonePreset", to: "cellPhone", hidden: false},
+    {id: "ab", from: "contactPreset", to: "emailPreset", hidden: false},
+    {id: "ac", from: "emailPreset", to: "email", hidden: false},
+    {id: "ad", from: "contactPreset", to: "addressPreset", hidden: false},
+    {id: "ae", from: "addressPreset", to: "address", hidden: true}
 ]);
 
   // create a network
@@ -45,6 +45,7 @@
     nodes: nodes,
     edges: edges
   };
+
   var options = {
     groups: {
       groupOne: {
@@ -56,7 +57,7 @@
       groupTwo: {
         shape: 'box',
         color: {
-          background:'rgb(23, 64, 161)',
+          background:'rgb(23, 64, 160)',
         },
       },
       groupThree: {
@@ -111,91 +112,120 @@
     },
   };
 
+  var network = new vis.Network(container, data,{options});
 
-
-  var network = new vis.Network(container, data, options);
+  var toggle = false;
+  network.on("click", function(e) {
+    tw_id = 'addressPreset';
+    if (e.nodes[0] == tw_id) {
+      nodes.update([
+        {id: 'address', hidden: toggle}
+      ]);
+      edges.update([
+        {id: 'ae', hidden: toggle}
+      ]);
+      network.fit();
+      toggle = !toggle;
+    }
+  });
 
   // create presetNodes
   var presetData = [
     {
       "id": "headerPreset",
       "group": "groupOne",
-      "label": "Header: "
+      "label": "Header: ",
+      "hidden": "false"
     },
     {
       "id": "locationPreset",
       "group": "groupTwo",
-      "label": "Location: "
+      "label": "Location: ",
+      "hidden": "false"
     },
     {
       "id": "caseNumberPreset",
       "group": "groupTwo",
-      "label": "Case Number: "
+      "label": "Case Number: ",
+      "hidden": "false"
     },
     {
       "id": "forensicExaminerPreset",
       "group": "groupTwo",
-      "label": "Forensic Examiner: "
+      "label": "Forensic Examiner: ",
+      "hidden": "false"
     },
     {
       "id": "infoPreset",
       "group": "groupOne",
-      "label": "Info: "
+      "label": "Info: ",
+      "hidden": "false"
     },
     {
       "id": "requestingOfficerPreset",
       "group": "groupTwo",
-      "label": "Requesting Officer: "
+      "label": "Requesting Officer: ",
+      "hidden": "false"
     },
     {
       "id": "backgroundInfoPreset",
       "group": "groupTwo",
-      "label": "Background Info: "
+      "label": "Background Info: ",
+      "hidden": "false"
     },
     {
       "id": "digitalEvidencePreset",
       "group": "groupOne",
-      "label": "Digital Evidence Summary: "
+      "label": "Digital Evidence Summary: ",
+      "hidden": "false"
     },
     {
       "id": "forensicImagingPreset",
       "group": "groupTwo",
-      "label": "Forensic Imaging: "
+      "label": "Forensic Imaging: ",
+      "hidden": "false"
     },
     {
       "id": "forensicExaminationPreset",
       "group": "groupTwo",
-      "label": "Forensic Examination: "
+      "label": "Forensic Examination: ",
+      "hidden": "false"
     },
     {
       "id": "conclusionPreset",
       "group": "groupOne",
-      "label": "Conclusion: "
+      "label": "Conclusion: ",
+      "hidden": "false"
     },
     {
       "id": "contactPreset",
       "group": "groupOne",
-      "label": "Contact: "
+      "label": "Contact: ",
+      "hidden": "false"
     },
     {
       "id": "officePhonePreset",
       "group": "groupTwo",
-      "label": "Office Phone: "
+      "label": "Office Phone: ",
+      "hidden": "false"
     },
     {
       "id": "cellPhonePreset",
       "group": "groupTwo",
-      "label": "Cell Phone: "
+      "label": "Cell Phone: ",
+      "hidden": "false"
     },
     {
       "id": "emailPreset",
       "group": "groupTwo",
-      "label": "Email: "
+      "label": "Email: ",
+      "hidden": "false"
     },
     {
       "id": "addressPreset",
       "group": "groupOne",
-      "label": "Address: "
+      "label": "Address: ",
+      "hidden": "false"
     }
   ];
 
@@ -204,62 +234,74 @@
     var formData = [{
         "id": "location",
         "group": "groupThree",
-        "label": form.location.value
+        "label": form.location.value,
+        "hidden": "false"
       },
       {
         "id": "caseNumber",
         "group": "groupThree",
-        "label": form.caseNumber.value
+        "label": form.caseNumber.value,
+        "hidden": "false"
       },
       {
         "id": "forensicExaminer",
         "group": "groupThree",
-        "label": form.forensicExaminer.value
+        "label": form.forensicExaminer.value,
+        "hidden": "false"
       },
       {
         "id": "requestingOfficer",
         "group": "groupThree",
-        "label": form.requestingOfficer.value
+        "label": form.requestingOfficer.value,
+        "hidden": "false"
       },
       {
         "id": "backgroundInfo",
         "group": "groupThree",
-        "label": form.backgroundInfo.value
+        "label": form.backgroundInfo.value,
+        "hidden": "false"
       },
       {
         "id": "forensicImaging",
         "group": "groupThree",
-        "label": form.forensicImaging.value
+        "label": form.forensicImaging.value,
+        "hidden": "false"
       },
       {
         "id": "forensicExamination",
         "group": "groupThree",
-        "label": form.forensicExamination.value
+        "label": form.forensicExamination.value,
+        "hidden": "false"
       },
       {
         "id": "conclusion",
         "group": "groupThree",
-        "label": form.conclusion.value
+        "label": form.conclusion.value,
+        "hidden": "false"
       },
       {
         "id": "officePhone",
         "group": "groupThree",
-        "label": form.officePhone.value
+        "label": form.officePhone.value,
+        "hidden": "false"
       },
       {
         "id": "cellPhone",
         "group": "groupThree",
-        "label": form.cellPhone.value
+        "label": form.cellPhone.value,
+        "hidden": "false"
       },
       {
         "id": "email",
         "group": "groupThree",
-        "label": form.email.value
+        "label": form.email.value,
+        "hidden": "false"
       },
       {
         "id": "address",
         "group": "groupThree",
-        "label": form.address.value
+        "label": form.address.value,
+        "hidden": "true"
       }
     ];
       nodes.clear();
