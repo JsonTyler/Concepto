@@ -77,6 +77,10 @@
       }
     },
     edges: {
+      smooth: {
+        type: 'cubicBezier'
+      },
+      shadow: true,
       arrows: {
       to:     {enabled: true, scaleFactor:1, type:'arrow'},
       middle: {enabled: false, scaleFactor:1, type:'arrow'},
@@ -87,6 +91,7 @@
       dashes: true
     },
     nodes: {
+      shadow: true,
       font: {
         color: 'white',
         size: 14
@@ -266,4 +271,3 @@
       nodes.add(formData);
       nodes.add(presetData);
   };
-  
