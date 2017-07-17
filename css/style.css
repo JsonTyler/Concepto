@@ -10,9 +10,9 @@
 
 #graph {
   float: right;
-  background: grey;
-  width: 900px;
-  height: 760px;
+  background: white;
+  width: 1050px;
+  height: 720px;
   border: 1px solid black;
 }
 
@@ -25,4 +25,8 @@ textarea {
   border-radius: 4px;
   background-color: #f8f8f8;
   resize: none;
+}
+
+vis-button.vis-right {
+    color: black;
 }
