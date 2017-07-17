@@ -1,8 +1,8 @@
 {
   "name": "researchSummer",
   "version": "1.0.0",
-  "description": "nodes",
-  "main": "index.js",
+  "description": "mind map forensic tool",
+  "main": "script.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
   },
