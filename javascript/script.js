@@ -6,37 +6,38 @@
 
   // create an array with edges
   var edges = new vis.DataSet([
+    {id: "00", from: "caseName", to: "headerPreset", hidden: "false"},
+    {id: "01", from: "caseName", to: "infoPreset", hidden: "false"},
+    {id: "02", from: "caseName", to: "digitalEvidencePreset", hidden: "false"},
+    {id: "03", from: "caseName", to: "conclusionPreset", hidden: "false"},
+    {id: "04", from: "caseName", to: "contactPreset", hidden: "false"},
+    {id: "05", from: "caseName", to: "addressPreset", hidden: "false"},
     {id: "a", from: "headerPreset", to: "locationPreset", hidden: "true"},
     {id: "b", from: "locationPreset", to: "location", label: "at", hidden: "true"},
     {id: "c", from: "headerPreset", to: "caseNumberPreset", hidden: "true"},
     {id: "d", from: "caseNumberPreset", to: "caseNumber", label: "is", hidden: "true"},
     {id: "e", from: "headerPreset", to: "forensicExaminerPreset", hidden: "true"},
     {id: "f", from: "forensicExaminerPreset", to: "forensicExaminer", label: "is", hidden: "true"},
-    {id: "g", from: "headerPreset", to: "infoPreset"},
     {id: "h", from: "infoPreset", to: "requestingOfficerPreset", hidden: "true"},
     {id: "i", from: "requestingOfficerPreset", to: "requestingOfficer", label: "is", hidden: "true"},
     {id: "j", from: "infoPreset", to: "backgroundInfoPreset", hidden: "true"},
     {id: "k", from: "backgroundInfoPreset", to: "backgroundInfo", label: "contains", hidden: "true"},
-    {id: "l", from: "infoPreset", to: "digitalEvidencePreset"},
     {id: "m", from: "digitalEvidencePreset", to: "forensicImagingPreset", hidden: "true"},
     {id: "n", from: "forensicImagingPreset", to: "forensicImaging", label: "results in", hidden: "true"},
     {id: "o", from: "digitalEvidencePreset", to: "forensicExaminationPreset", hidden: "true"},
     {id: "p", from: "forensicExaminationPreset", to: "forensicExamination", label: "examines", hidden: "true"},
-    {id: "q", from: "digitalEvidencePreset", to: "conclusionPreset"},
-    {id: "r", from: "conclusionPreset", to: "conclusion", label: "concludes that", hidden: "true"},
-    {id: "s", from: "conclusionPreset", to: "contactPreset"},
-    {id: "t", from: "contactPreset", to: "officePreset", hidden: "true"},
-    {id: "u", from: "officePreset", to: "office", hidden: "true"},
-    {id: "v", from: "contactPreset", to: "unitPreset", hidden: "true"},
-    {id: "w", from: "unitPreset", to: "unit", hidden: "true"},
-    {id: "x", from: "contactPreset", to: "officePhonePreset", hidden: "true"},
-    {id: "y", from: "officePhonePreset", to: "officePhone", hidden: "true"},
-    {id: "z", from: "contactPreset", to: "cellPhonePreset", hidden: "true"},
-    {id: "aa", from: "cellPhonePreset", to: "cellPhone", hidden: "true"},
-    {id: "ab", from: "contactPreset", to: "emailPreset", hidden: "true"},
-    {id: "ac", from: "emailPreset", to: "email", hidden: "true"},
-    {id: "ad", from: "contactPreset", to: "addressPreset"},
-    {id: "ae", from: "addressPreset", to: "address", hidden: "true"}
+    {id: "q", from: "conclusionPreset", to: "conclusion", label: "concludes that", hidden: "true"},
+    {id: "r", from: "contactPreset", to: "officePreset", hidden: "true"},
+    {id: "s", from: "officePreset", to: "office", hidden: "true"},
+    {id: "t", from: "contactPreset", to: "unitPreset", hidden: "true"},
+    {id: "u", from: "unitPreset", to: "unit", hidden: "true"},
+    {id: "v", from: "contactPreset", to: "officePhonePreset", hidden: "true"},
+    {id: "w", from: "officePhonePreset", to: "officePhone", hidden: "true"},
+    {id: "x", from: "contactPreset", to: "cellPhonePreset", hidden: "true"},
+    {id: "y", from: "cellPhonePreset", to: "cellPhone", hidden: "true"},
+    {id: "z", from: "contactPreset", to: "emailPreset", hidden: "true"},
+    {id: "aa", from: "emailPreset", to: "email", hidden: "true"},
+    {id: "ab", from: "addressPreset", to: "address", hidden: "true"}
 ]);
 
   // create a network
@@ -46,26 +47,6 @@
     edges: edges
   };
   var options = {
-    groups: {
-      groupOne: {
-        shape: 'box',
-        color: {
-          background:'rgb(10, 30, 113)'
-        }
-      },
-      groupTwo: {
-        shape: 'box',
-        color: {
-          background:'rgb(23, 64, 161)',
-        },
-      },
-      groupThree: {
-        shape: 'ellipse',
-        color: {
-          background: 'rgb(11, 10, 11)'
-        }
-      }
-    },
     manipulation: {
       addNode: function(nodeData,callback) {
         nodeData.label = prompt("Label your node: ", "");
@@ -88,24 +69,28 @@
       dashes: true
     },
     nodes: {
+      mass: 1,
       shadow: true,
       font: {
         color: 'black',
         size: 14
       },
       color: {
-        background: 'rgb(47, 90, 201)',
+        background: 'rgb(91, 152, 227)',
         border: 'grey'
       },
       shape: 'box'
     },
     layout: {
+      improvedLayout: true,
       hierarchical: {
-          levelSeparation: 100,
-          nodeSpacing: 100,
-          treeSpacing: 100,
-          direction: "LR",
-          sortMethod: "directed"
+        enabled: true,
+        levelSeparation: 290,
+        nodeSpacing: 50,
+        blockShifting: false,
+        edgeMinimization: true,
+        sortMethod: "directed",
+        direction: "LR"
       }
     },
     interaction: {
@@ -119,7 +104,6 @@
 
   var network = new vis.Network(container, data, options);
   var nodesInOpenClusters = {}
-  var network = new vis.Network(container, data, options);
   network.on("selectNode", function(params) {
       if (params.nodes.length == 1) {
           if (network.isCluster(params.nodes[0]) == true) {
@@ -138,201 +122,175 @@
   var presetData = [
     {
       "id": "headerPreset",
-      "group": "groupOne",
       "label": "Header: ",
-      "color": "red"
+      "hidden": "true"
     },
     {
       "id": "locationPreset",
-      "group": "groupTwo",
       "label": "Location: ",
-      "color": "red",
       "hidden": "true"
     },
     {
       "id": "caseNumberPreset",
-      "group": "groupTwo",
       "label": "Case Number: ",
-      "color": "red",
       "hidden": "true"
     },
     {
       "id": "forensicExaminerPreset",
-      "group": "groupTwo",
       "label": "Forensic Examiner: ",
-      "color": "red",
       "hidden": "true"
     },
     {
       "id": "infoPreset",
-      "group": "groupOne",
       "label": "Info: ",
-      "color": "black"
+      "hidden": "true"
     },
     {
       "id": "requestingOfficerPreset",
-      "group": "groupTwo",
       "label": "Requesting Officer: ",
-      "color": "black",
       "hidden": "true"
     },
     {
       "id": "backgroundInfoPreset",
-      "group": "groupTwo",
       "label": "Background Info: ",
-      "color": "black",
       "hidden": "true"
     },
     {
       "id": "digitalEvidencePreset",
-      "group": "groupOne",
-      "label": "Digital Evidence Summary: ",
-      "color": "blue",
+      "label": "Digital Evidence: ",
       "hidden": "true"
     },
     {
       "id": "forensicImagingPreset",
-      "group": "groupTwo",
-      "label": "Forensic Imaging: ",
-      "color": "blue",
+      "label": "Imaging: ",
       "hidden": "true"
     },
     {
       "id": "forensicExaminationPreset",
-      "group": "groupTwo",
-      "label": "Forensic Examination: ",
-      "color": "blue",
+      "label": "Examination: ",
       "hidden": "true"
     },
     {
       "id": "conclusionPreset",
-      "group": "groupOne",
       "label": "Conclusion: ",
-      "color": "purple"
+      "hidden": "true"
     },
     {
       "id": "contactPreset",
-      "group": "groupOne",
       "label": "Contact: ",
-      "color": "green"
+      "hidden": "true"
+    },
+    {
+      "id": "officePreset",
+      "label": "Office: ",
+      "hidden": "true"
+    },
+    {
+      "id": "unitPreset",
+      "label": "Unit: ",
+      "hidden": "true"
     },
     {
       "id": "officePhonePreset",
-      "group": "groupTwo",
       "label": "Office Phone: ",
-      "color": "green",
       "hidden": "true"
     },
     {
       "id": "cellPhonePreset",
-      "group": "groupTwo",
       "label": "Cell Phone: ",
-      "color": "green",
       "hidden": "true"
     },
     {
       "id": "emailPreset",
-      "group": "groupTwo",
       "label": "Email: ",
-      "color": "green",
       "hidden": "true"
     },
     {
       "id": "addressPreset",
-      "group": "groupOne",
       "label": "Address: ",
-      "color": "orange"
+      "hidden": "true"
     }
   ];
 
   function make_json(form) {
 
     var formData = [{
+        "id": "caseName",
+        "label": form.caseName.value
+      },
+      {
         "id": "location",
-        "group": "groupThree",
         "label": form.location.value,
-        "color": "red",
         "hidden": "true"
       },
       {
         "id": "caseNumber",
-        "group": "groupThree",
         "label": form.caseNumber.value,
-        "color": "red",
         "hidden": "true"
       },
       {
         "id": "forensicExaminer",
-        "group": "groupThree",
         "label": form.forensicExaminer.value,
-        "color": "red",
         "hidden": "true"
       },
       {
         "id": "requestingOfficer",
-        "group": "groupThree",
         "label": form.requestingOfficer.value,
-        "color": "black",
         "hidden": "true"
       },
       {
         "id": "backgroundInfo",
-        "group": "groupThree",
         "label": form.backgroundInfo.value,
-        "color": "black",
         "hidden": "true"
       },
       {
         "id": "forensicImaging",
-        "group": "groupThree",
         "label": form.forensicImaging.value,
-        "color": "blue",
         "hidden": "true"
       },
       {
         "id": "forensicExamination",
-        "group": "groupThree",
         "label": form.forensicExamination.value,
-        "color": "blue",
         "hidden": "true"
       },
       {
         "id": "conclusion",
-        "group": "groupThree",
         "label": form.conclusion.value,
-        "color": "purple",
+        "hidden": "true"
+      },
+      {
+        "id": "office",
+        "label": form.office.value,
+        "hidden": "true"
+      },
+      {
+        "id": "unit",
+        "label": form.unit.value,
         "hidden": "true"
       },
       {
         "id": "officePhone",
-        "group": "groupThree",
         "label": form.officePhone.value,
-        "color": "green",
         "hidden": "true"
       },
       {
         "id": "cellPhone",
-        "group": "groupThree",
         "label": form.cellPhone.value,
-        "color": "green",
         "hidden": "true"
       },
       {
         "id": "email",
-        "group": "groupThree",
         "label": form.email.value,
-        "color": "green",
         "hidden": "true"
       },
       {
         "id": "address",
-        "group": "groupThree",
         "label": form.address.value,
-        "color": "orange",
         "hidden": "true"
       }
     ];
       nodes.clear();
       nodes.add(formData);
       nodes.add(presetData);
+      network.fit();
   };
