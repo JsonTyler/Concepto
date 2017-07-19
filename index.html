@@ -5,9 +5,47 @@
   <meta charset="utf-8">
   <title>Vis JS</title>
   <script type="text/javascript" src="javascript/vis.min.js"></script>
+  <script type="text/javascript" src="javascript/textarea-autogrow.js"></script>
   <link rel="stylesheet" type="text/css" href="css/vis.min.css">
   <link rel="stylesheet" type="text/css" href="css/vis.css" />
   <link rel="stylesheet" type="text/css" href="css/style.css">
+
+  <script>
+  document.onreadystatechange = function(){
+    if(document.readyState == "complete"){
+      var maxLines = 15,
+        textarea = document.getElementById('requestingOfficer');
+      var autoGrowTextarea = new Autogrow(textarea, maxLines);
+      }
+      if(document.readyState == "complete"){
+        var maxLines = 15,
+          textarea = document.getElementById('backgroundInfo');
+        var autoGrowTextarea = new Autogrow(textarea, maxLines);
+      }
+      if(document.readyState == "complete"){
+        var maxLines = 10,
+          textarea = document.getElementById('forensicImaging');
+        var autoGrowTextarea = new Autogrow(textarea, maxLines);
+      }
+      if(document.readyState == "complete"){
+        var maxLines = 10,
+          textarea = document.getElementById('forensicExamination');
+        var autoGrowTextarea = new Autogrow(textarea, maxLines);
+      }
+      if(document.readyState == "complete"){
+        var maxLines = 10,
+          textarea = document.getElementById('conclusion');
+        var autoGrowTextarea = new Autogrow(textarea, maxLines);
+      }
+      if(document.readyState == "complete"){
+        var maxLines = 10,
+          textarea = document.getElementById('address');
+        var autoGrowTextarea = new Autogrow(textarea, maxLines);
+      }
+  }
+
+
+  </script>
 </head>
 
 <body>
@@ -32,7 +70,7 @@
 
         <!-- ***Request*** -->
         <div name="request" class="request" id="request">
-          Requesting Officer Information: <textarea name="requestingOfficer" id="requestingOfficer"></textarea><br />
+          Requesting Officer Information: <textarea name="requestingOfficer" rows="3" id="requestingOfficer"></textarea><br />
         </div>
 
 
@@ -74,6 +112,7 @@
 
   </div>
   </div>
+
 </body>
 <script type="text/javascript" src="javascript/script.js"></script>
 <script type="text/javascript" src="javascript/tree.js"></script>
