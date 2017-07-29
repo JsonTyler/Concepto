@@ -2,8 +2,12 @@
 <html>
 
 <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta charset="utf-8">
   <title>Vis JS</title>
+  <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+  <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+  <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
   <script type="text/javascript" src="javascript/vis.min.js"></script>
   <script type="text/javascript" src="javascript/textarea-autogrow.js"></script>
   <link rel="stylesheet" type="text/css" href="css/vis.min.css">
@@ -52,14 +56,19 @@
   <div id="graph">
   </div>
 
+
+<!--Collapsible Form-->
+ <div data-role="main" class="ui-content">
+  <fieldset data-role="collapsible">
+      <legend>Expand</legend>
     <!--THE FORM -->
     <div id="myFormContainer">
 
       <form id="myForm" method="POST" action="/files" onsubmit="event.preventDefault(); return make_json(this)" ;>
 
         <!-- ***HEADER*** -->
-        <p>Header</p>
         <div name="header" class="header" id="header">
+          <p>Header</p>
           Case: <input type="text" name="caseName" id="caseName" /><br />
           Location: <input type="text" name="location" id="location" /><br/>
           Case Number: <input type="text" name="caseNumber" id="caseNumber" /><br/>
@@ -108,11 +117,14 @@
         </div>
 
 
-        <input type="submit" id="submitbtn" value="Submit">
+        <input type="submit" id="submitbtn" data-inline="true" value="Submit">
       </form>
 
   </div>
+  </fieldset>
   </div>
+
+
 
 </body>
 <script type="text/javascript" src="javascript/script.js"></script>
