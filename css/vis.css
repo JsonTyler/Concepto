@@ -616,7 +616,6 @@ div.vis-network div.vis-manipulation div.notification {
 
 div.vis-network div.vis-manipulation div.vis-button.vis-add {
   background-image: url("img/network/addNodeIcon.png");
-  background-color: black;
 }
 
 div.vis-network div.vis-manipulation div.vis-button.vis-edit,
@@ -680,19 +679,17 @@ div.vis-network div.vis-navigation div.vis-button {
 }
 
 div.vis-network div.vis-navigation div.vis-button:hover {
-    box-shadow: 0 0 3px 3px rgba(56, 207, 21, 0.30);
+    box-shadow: 0 0 3px 3px rgba(159, 16, 7, 0.95);
 }
 
 div.vis-network div.vis-navigation div.vis-button:active {
-    box-shadow: 0 0 1px 3px rgba(56, 207, 21, 0.95);
+    box-shadow: 0 0 1px 3px rgba(159, 16, 7, 0.95);
 }
 
 div.vis-network div.vis-navigation div.vis-button.vis-up {
     background-image: url("img/network/upArrow.png");
     bottom:50px;
     left:55px;
-    border: black;
-    color: black;
 }
 div.vis-network div.vis-navigation div.vis-button.vis-down {
     background-image: url("img/network/downArrow.png");
@@ -1260,7 +1257,7 @@ div.vis-network div.vis-navigation div.vis-button.vis-zoomExtends {
   position: absolute;
   width: 100%;
   height: 1px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.8);
+  box-shadow: 0 0 10px rgba(159, 16, 7, 0.95);
   /* TODO: find a nice way to ensure vis-shadows are drawn on top of items
   z-index: 1;
   */

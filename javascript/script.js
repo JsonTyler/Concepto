@@ -1,7 +1,7 @@
 
   // create an array with nodes
   var nodes = new vis.DataSet([
-    {id: "test", label: "Please fill out the form to the left to populate this map...", url: 'indextwo.html'}
+    {id: "test", label: "Please fill out the form to the left to populate this map..."}
   ]);
 
   // create an array with edges
@@ -118,19 +118,16 @@
     network.setOptions( { physics: false } );
   });
 
-  network.on("selectNode", function (params) {
-        if (params.nodes.length === 1) {
-            var node = nodes.get(params.nodes[0]);
-            window.open(node.url, '_blank');
-        }
-  });
+
+
 
   // create presetNodes
   var presetData = [
     {
       "id": "headerPreset",
       "label": "Header: ",
-      "hidden": "true"
+      "hidden": "true",
+      "url": "indextwo.html"
     },
     {
       "id": "locationPreset",

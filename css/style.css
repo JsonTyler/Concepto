@@ -1,3 +1,7 @@
+#myForm {
+  margin: 0px;
+  padding: 0px;
+}
 #wrapper {
   background: white;
   overflow: hidden
@@ -115,3 +119,71 @@
   overflow: hidden;
 }
 /*resizing boxes end*/
+
+#header, #request, #digitalEvidenceSummary, #theEnd, #contactInfo, #addressInfo {
+  padding: 5px;
+}
+
+
+/*Nav buttons*/
+div.vis-network div.vis-navigation div.vis-button.vis-up,
+div.vis-network div.vis-navigation div.vis-button.vis-down,
+div.vis-network div.vis-navigation div.vis-button.vis-left,
+div.vis-network div.vis-navigation div.vis-button.vis-right,
+div.vis-network div.vis-navigation div.vis-button.vis-zoomIn,
+div.vis-network div.vis-navigation div.vis-button.vis-zoomOut,
+div.vis-network div.vis-navigation div.vis-button.vis-zoomExtends {
+  background-image: none !important;
+}
+
+div.vis-network div.vis-navigation div.vis-button:hover {
+  box-shadow: none !important;
+}
+
+.vis-button:after {
+  font-size: 2em;
+  color: gray;
+}
+
+.vis-button:hover:after {
+  font-size: 2em;
+  color: lightgray;
+}
+
+.vis-button.vis-up:after {
+  content: "▲";
+  color: red;
+}
+
+.vis-button.vis-down:after {
+  content: "▼";
+  color: red;
+}
+
+.vis-button.vis-left:after {
+  content: "◀";
+  color: red;
+}
+
+.vis-button.vis-right:after {
+  content: "▶";
+  color: red;
+  padding-bottom: 20px;
+}
+
+.vis-button.vis-zoomIn:after {
+  content: "+";
+  font-weight: bold;
+  color: red;
+}
+
+.vis-button.vis-zoomOut:after {
+  content: "−";
+  font-weight: bold;
+  color: red;
+}
+
+.vis-button.vis-zoomExtends:after {
+  content: "⤧";
+  color: red;
+}

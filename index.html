@@ -52,36 +52,33 @@
   <div id="graph">
   </div>
 
-  <div id="myFormContainer">
-
     <!--THE FORM -->
     <div id="myFormContainer">
 
       <form id="myForm" method="POST" action="/files" onsubmit="event.preventDefault(); return make_json(this)" ;>
 
         <!-- ***HEADER*** -->
+        <p>Header</p>
         <div name="header" class="header" id="header">
           Case: <input type="text" name="caseName" id="caseName" /><br />
           Location: <input type="text" name="location" id="location" /><br/>
           Case Number: <input type="text" name="caseNumber" id="caseNumber" /><br/>
-          Forensic Examiner: <input type="text" name="forensicExaminer" id="forensicExaminer" /><br/>
+          Forensic Examiner: <input type="text" name="forensicExaminer" id="forensicExaminer" />
         </div>
 
 
         <!-- ***Request*** -->
+        <p>Requested Information</p>
         <div name="request" class="request" id="request">
-          Requesting Officer Information: <textarea name="requestingOfficer" rows="3" id="requestingOfficer"></textarea><br />
-        </div>
-
-
+        Requesting Officer Information: <textarea name="requestingOfficer" rows="3" id="requestingOfficer"></textarea><br />
         <!-- ***Background Information*** -->
-        <div name="background" class="background" id="background">
-          Background Information: <textarea name="backgroundInfo" id="backgroundInfo"></textarea><br />
+        Background Information: <textarea name="backgroundInfo" id="backgroundInfo"></textarea>
         </div>
 
+
+        <p>Report</p>
         <!-- ***Digital Evidence Summary Report*** -->
         <div name="digitalEvidenceSummary" class="digitalEvidenceSummary" id="digitalEvidenceSummary">
-          <p>Digital Evidence Summary Report -</p>
           <!-- ***Forensic Imaging*** -->
           Forensic Imaging: <textarea name="forensicImaging" id="forensicImaging"></textarea><br />
           <!-- ***Forensic Examination*** -->
@@ -89,25 +86,29 @@
         </div>
 
         <!-- ***Conclusion*** -->
+        <p>Conclusion</p>
         <div name="theEnd" id="theEnd">
           Conclusion: <textarea name="conclusion" id="conclusion"></textarea><br />
         </div>
 
         <!-- ***Contact Information -->
+        <p>Contact</p>
         <div name="contactInfo" id="contactInfo">
          Office: <input type="text" name="office" /><br />
          Unit: <input type="text" name="unit" /><br />
          Office Phone: <input type="text" name="officePhone" /><br />
          Cell Phone: <input type="text" name="cellPhone" /><br />
          Email: <input type="text" name="email" /><br />
-         Address: <textarea name="address" id="address"></textarea>
+        </div>
+
+        <!-- ***Address Information -->
+        <p>Address</p>
+        <div name="addressInfo" id="addressInfo">
+          Address: <textarea name="address" id="address"></textarea>
         </div>
 
 
-
         <input type="submit" id="submitbtn" value="Submit">
-      </form>
-
       </form>
 
   </div>
