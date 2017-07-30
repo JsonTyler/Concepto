@@ -59,6 +59,10 @@
     },
     edges: {
       shadow: true,
+      font: {
+        face: 'Century Gothic',
+        strokeWidth: 5
+      },
       arrows: {
       to:     {enabled: true, scaleFactor:1, type:'arrow'},
       middle: {enabled: false, scaleFactor:1, type:'arrow'},
@@ -72,6 +76,7 @@
       mass: 1,
       shadow: true,
       font: {
+        face: 'Century Gothic',
         color: 'black',
         size: 14
       },
@@ -85,9 +90,9 @@
       improvedLayout: true,
       hierarchical: {
         enabled: true,
-        levelSeparation: 290,
-        nodeSpacing: 50,
-        blockShifting: false,
+        levelSeparation: 430,
+        nodeSpacing: 42,
+        blockShifting: true,
         edgeMinimization: true,
         sortMethod: "directed",
         direction: "LR"

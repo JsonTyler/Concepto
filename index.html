@@ -53,13 +53,10 @@
 </head>
 
 <body>
-  <div id="graph">
-  </div>
-
 
 <!--Collapsible Form-->
- <div data-role="main" class="ui-content">
-  <fieldset data-role="collapsible">
+ <div data-role="main" class="ui-content" style="background: white;">
+  <fieldset data-role="collapsible" class="tester">
       <legend>Fill Out Form - Click To Expand</legend>
     <!--THE FORM -->
     <div id="myFormContainer">
@@ -67,51 +64,59 @@
       <form id="myForm" method="POST" action="/files" onsubmit="event.preventDefault(); return make_json(this)" ;>
 
         <!-- ***HEADER*** -->
+        <p><u>Header:</u></p>
         <div name="header" class="header" id="header">
-          <p>Header</p>
-          Case: <input type="text" name="caseName" id="caseName" /><br />
-          Location: <input type="text" name="location" id="location" /><br/>
-          Case Number: <input type="text" name="caseNumber" id="caseNumber" /><br/>
+          Case: <input type="text" name="caseName" id="caseName" />
+          Location: <input type="text" name="location" id="location" />
+          Case Number: <input type="text" name="caseNumber" id="caseNumber" />
           Forensic Examiner: <input type="text" name="forensicExaminer" id="forensicExaminer" />
         </div>
 
+        <br /> <br />
 
         <!-- ***Request*** -->
-        <p>Requested Information</p>
+        <p><u>Requested Information:</u></p>
         <div name="request" class="request" id="request">
-        Requesting Officer Information: <textarea name="requestingOfficer" rows="3" id="requestingOfficer"></textarea><br />
+        Requesting Officer Information: <textarea name="requestingOfficer" rows="3" id="requestingOfficer"></textarea>
         <!-- ***Background Information*** -->
         Background Information: <textarea name="backgroundInfo" id="backgroundInfo"></textarea>
         </div>
 
+        <br /> <br />
 
-        <p>Report</p>
+        <p><u>Report:</u></p>
         <!-- ***Digital Evidence Summary Report*** -->
         <div name="digitalEvidenceSummary" class="digitalEvidenceSummary" id="digitalEvidenceSummary">
           <!-- ***Forensic Imaging*** -->
-          Forensic Imaging: <textarea name="forensicImaging" id="forensicImaging"></textarea><br />
+          Forensic Imaging: <textarea name="forensicImaging" id="forensicImaging"></textarea>
           <!-- ***Forensic Examination*** -->
-          Forensic Examination: <textarea name="forensicExamination" id="forensicExamination"></textarea><br />
+          Forensic Examination: <textarea name="forensicExamination" id="forensicExamination"></textarea>
         </div>
+
+        <br /> <br />
 
         <!-- ***Conclusion*** -->
-        <p>Conclusion</p>
+        <p><u>Conclusion:</u></p>
         <div name="theEnd" id="theEnd">
-          Conclusion: <textarea name="conclusion" id="conclusion"></textarea><br />
+          Conclusion: <textarea name="conclusion" id="conclusion"></textarea>
         </div>
+
+        <br /> <br />
 
         <!-- ***Contact Information -->
-        <p>Contact</p>
+        <p><u>Contact:</u></p>
         <div name="contactInfo" id="contactInfo">
-         Office: <input type="text" name="office" /><br />
-         Unit: <input type="text" name="unit" /><br />
-         Office Phone: <input type="text" name="officePhone" /><br />
-         Cell Phone: <input type="text" name="cellPhone" /><br />
-         Email: <input type="text" name="email" /><br />
+         Office: <input type="text" name="office" />
+         Unit: <input type="text" name="unit" />
+         Office Phone: <input type="text" name="officePhone" />
+         Cell Phone: <input type="text" name="cellPhone" />
+         Email: <input type="text" name="email" />
         </div>
 
+        <br /> <br />
+
         <!-- ***Address Information -->
-        <p>Address</p>
+        <p><u>Address:</u></p>
         <div name="addressInfo" id="addressInfo">
           Address: <textarea name="address" id="address"></textarea>
         </div>
@@ -124,7 +129,7 @@
   </fieldset>
   </div>
 
-
+  <div id="graph"></div>
 
 </body>
 <script type="text/javascript" src="javascript/script.js"></script>
