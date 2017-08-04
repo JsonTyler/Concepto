@@ -121,6 +121,8 @@
 }
 /*resizing boxes end*/
 
+
+/*added indentation*/
 #header, #request, #digitalEvidenceSummary, #theEnd, #contactInfo, #addressInfo {
   padding: 20px;
 }
