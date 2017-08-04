@@ -1,3 +1,5 @@
+//Autogrow Text Area Script
+
 (function (root, factory) {
     if (typeof define === 'function' && define.amd) {
         define([], factory);
@@ -15,9 +17,8 @@
         }
 
         /**
-         * Calculates the vertical padding of the element
-         * @param textarea
-         * @returns {number}
+         * Calculates the vertical padding of the element textarea
+         * returns number
          */
         self.getOffset = function(textarea){
             var style = window.getComputedStyle(textarea, null),
@@ -32,7 +33,7 @@
 
         /**
          * Sets textarea height as exact height of content
-         * @returns {boolean}
+         * returns boolean
          */
         self.autogrowFn = function(){
             var newHeight = 0, hasGrown = false;

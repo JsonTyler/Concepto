@@ -1,7 +1,8 @@
+//Main Script
 
-  // create an array with nodes
+  // create the original array with nodes
   var nodes = new vis.DataSet([
-    {id: "test", label: "Please fill out the form to the left to populate this map..."}
+    {id: "test", label: "Please fill out the form above to populate this map..."}
   ]);
 
   // create an array with edges
@@ -25,8 +26,8 @@
     {id: "m", from: "digitalEvidencePreset", to: "forensicImagingPreset", hidden: "true"},
     {id: "n", from: "forensicImagingPreset", to: "forensicImaging", label: "results in", hidden: "true"},
     {id: "o", from: "digitalEvidencePreset", to: "forensicExaminationPreset", hidden: "true"},
-    {id: "p", from: "forensicExaminationPreset", to: "forensicExamination", label: "examines", hidden: "true"},
-    {id: "q", from: "conclusionPreset", to: "conclusion", label: "concludes that", hidden: "true"},
+    {id: "p", from: "forensicExaminationPreset", to: "forensicExamination", label: "results in", hidden: "true"},
+    {id: "q", from: "conclusionPreset", to: "conclusion", label: "concludes", hidden: "true"},
     {id: "r", from: "contactPreset", to: "officePreset", hidden: "true"},
     {id: "s", from: "officePreset", to: "office", hidden: "true"},
     {id: "t", from: "contactPreset", to: "unitPreset", hidden: "true"},
@@ -106,7 +107,7 @@
   };
 
 
-
+//Cluster Function
   var network = new vis.Network(container, data, options);
   var nodesInOpenClusters = {}
   network.on("selectNode", function(params) {
@@ -119,6 +120,7 @@
       }
   });
 
+  //Turned Physics off
   network.on("stabilizationIterationsDone", function () {
     network.setOptions( { physics: false } );
   });
@@ -221,6 +223,7 @@
     }
   ];
 
+  //Makes Json format from html form, which vis then turns into nodes
   function make_json(form) {
 
     var formData = [{

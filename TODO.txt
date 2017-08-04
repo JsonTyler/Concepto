@@ -1,4 +1,2 @@
-1. Change organization of html form (Ex: Headers)
-2. Fix spacing of tree since it is now full screen
-3. Add more propositions in edges
-4. Write paper
+1. Clean up comments
+2. Write paper

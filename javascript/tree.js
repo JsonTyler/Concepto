@@ -1,6 +1,8 @@
+//Collapsible Node Function Script
+
 var toggle = 'false';
 
-//CASE NAME
+//CASE NAME node
 network.on("click",function(e){
 if(e.nodes[0] == "caseName"){
   if(toggle){
@@ -35,7 +37,7 @@ if(e.nodes[0] == "caseName"){
 });
 
 
-//HEADER
+//HEADER node
 network.on("click",function(e){
 if(e.nodes[0] == "headerPreset"){
   if(toggle){
@@ -70,7 +72,7 @@ if(e.nodes[0] == "headerPreset"){
 });
 
 
-//INFO
+//INFO node
 network.on("click",function(e){
 if(e.nodes[0] == "infoPreset"){
   if(toggle){
@@ -97,7 +99,7 @@ if(e.nodes[0] == "infoPreset"){
 });
 
 
-//DIGITAL EVIDENCE SUMMARY
+//DIGITAL EVIDENCE SUMMARY node
 network.on("click",function(e){
 if(e.nodes[0] == "digitalEvidencePreset"){
   if(toggle){
@@ -124,7 +126,7 @@ if(e.nodes[0] == "digitalEvidencePreset"){
 });
 
 
-//CONCLUSION
+//CONCLUSION node
 network.on("click",function(e){
 if(e.nodes[0] == "conclusionPreset"){
   if(toggle){
@@ -139,7 +141,7 @@ if(e.nodes[0] == "conclusionPreset"){
 });
 
 
-//CONTACT
+//CONTACT node
 network.on("click",function(e){
 if(e.nodes[0] == "contactPreset"){
   if(toggle){
@@ -191,7 +193,7 @@ if(e.nodes[0] == "contactPreset"){
 
 
 
-//ADDRESS
+//ADDRESS node
 network.on("click",function(e){
 if(e.nodes[0] == "addressPreset"){
   if(toggle){
