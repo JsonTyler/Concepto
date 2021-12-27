@@ -3,7 +3,7 @@
 #### Name 
 Concepto
 #### Purpose:
-A concept map creator that I made as an undergraduate research student.
+A forensic tool concept map creator that I made as an undergraduate research student.
 
 ## Live Version <img src="./logo.png" width="40" />
 #### Link: [Demo](https://concepto.jasontylerrodriguez.com)
