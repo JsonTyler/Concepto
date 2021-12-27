@@ -6,7 +6,7 @@ Concepto
 A concept map creator that I made as an undergraduate research student.
 
 ## Live Version <img src="./logo.png" width="40" />
-#### Link: [www.concepto.com](https://concepto.jasontylerrodriguez.com)
+#### Link: [Demo](https://concepto.jasontylerrodriguez.com)
 
 ## What technologies does it use? <img src="./logo.png" width="40" />
 HTML5/CSS3, Javascript, Vis.js
